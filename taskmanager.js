@@ -1,4 +1,4 @@
-class Task{
+ export class Task{
 
     constructor(id,title,completed,completedState= false){
 this.title = title;
@@ -20,7 +20,7 @@ toggle(){
 }
 
 }
-class TaskManager{
+export class TaskManager{
 constructor(){
     this.tasks = [];
 }
