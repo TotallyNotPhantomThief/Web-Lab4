@@ -35,11 +35,9 @@ removeTask(taskId){
 this.tasks = this.tasks.filter(task => task.id !== taskId);
 }
 toggleTask(taskId){
-
+this.tasks = this.tasks.map((task) =>
+      task.id === taskId ? { ...task, completed: !task.completed } : task);
 
 }
-
-
-
 
 }

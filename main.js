@@ -32,15 +32,25 @@ function renderTasks(){
         }
     })
 
+    const taskTitle = document.createElement('span');
+    titleSpan.textContent = task.title;
 
+    const toggleButton = document.createElement('button');
+    toggleButton.textContent = "Toggle";
+    toggleButton.addEventListener('click',()=>{
+        taskManager.toggleTask(task.id);
+        renderTasks();
+    })
 
+const deleteButton = document.createElement('button');
+  deleteButton.textContent = "Delete";
+  deleteButton.addEventListener('click',()=>{
+    taskManager.removeTask(task.id);
+    renderTasks();
+  });
 
-
-
-
-
-
-
-
-
+  taskDivison.appendChild(titleSpan);
+  taskDivison.appendChild(toggleButton);
+  taskDivison.appendChild(deleteButton);
+  taskList.appendChild(taskDivison);
 }
