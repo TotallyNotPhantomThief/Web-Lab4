@@ -1,4 +1,4 @@
- function fetchTasks(){
+  export function fetchTasks(){
 return new Promise((resolve) =>{
     setTimeout(() =>{
         resolve([{ id: 1, title: "Study JavaScript", completed: false },
