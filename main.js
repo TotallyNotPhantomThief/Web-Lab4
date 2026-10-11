@@ -16,31 +16,31 @@ loadBtn.addEventListener("click",async ()=> {
     } catch(error){
         statusMesssage.textContent = "Error loading tasks";
     }
-
-
   }  
-
 )
-
 function renderTasks(){
     taskList.innerHTML = '';
-    taskManager.tasks.forEach(task => {
+    const jsonString = JSON.stringify(rawtasks,null,2);
+    const jsonParse = Json.parse(jsonString);
+
+    jsonParse.tasks.forEach(task => {
         const taskDivsion = document.createElement('div');
-        taskDivison.classList.add('task');
+        taskDivsion.classList.add('task');
         if(task.completed){
             taskDivison.classList.add('completed');
         }
-    })
+    
 
     const taskTitle = document.createElement('span');
-    titleSpan.textContent = task.title;
+    taskTitle.textContent = task.title;
 
     const toggleButton = document.createElement('button');
     toggleButton.textContent = "Toggle";
     toggleButton.addEventListener('click',()=>{
         taskManager.toggleTask(task.id);
         renderTasks();
-    })
+    });
+   });
 
 const deleteButton = document.createElement('button');
   deleteButton.textContent = "Delete";
@@ -49,7 +49,7 @@ const deleteButton = document.createElement('button');
     renderTasks();
   });
 
-  taskDivison.appendChild(titleSpan);
+  taskDivison.appendChild(taskTitle);
   taskDivison.appendChild(toggleButton);
   taskDivison.appendChild(deleteButton);
   taskList.appendChild(taskDivison);
