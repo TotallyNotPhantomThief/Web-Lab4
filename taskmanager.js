@@ -1,9 +1,9 @@
  export class Task{
 
-    constructor(id,title,completed,completedState= false){
+    constructor(id,title,completed){
 this.title = title;
 this.completed = completed;
-this.updateCompletedState(completedState);
+
 
 Object.defineProperty(this,'id',{
 value: id,
@@ -11,13 +11,13 @@ writable: false,
 configurable: false,
 enumerable: true});
  }
-updateCompletedState(state){
-    this.completed.classlist.toggle('completed',state);
-}
+
 toggle(){
-    this.completed.classlist.toggle('completed');
+    return new Task(this.id, this.title, !this.completed);
+} 
+
+
 }
- }
 
 export class TaskManager{
 constructor(){
@@ -34,9 +34,9 @@ removeTask(taskId){
 this.tasks = this.tasks.filter(task => task.id !== taskId);
 }
 toggleTask(taskId){
-this.tasks = this.tasks.map((task) =>
-      task.id === taskId ? { ...task, completed: !task.completed } : task);
-
+    this.tasks = this.tasks.map(task => 
+            task.id === taskId ? task.toggle() : task
+        );
 }
 
 }

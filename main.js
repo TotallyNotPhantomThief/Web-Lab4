@@ -3,18 +3,18 @@ import{ fetchTasks} from "./api";
 const taskManager = new TaskManager();
 const loadBtn = document.getElementById("loadTaskBtn");
 const taskList = document.getElementById("taskList");
-const statusMesssage = document.getElementById("statusMessage");
+const statusMessage = document.getElementById("statusMessage");
 
 loadBtn.addEventListener("click",async ()=> {
-    statusMesssage.textContent = "Loading tasks...";
+    statusMessage.textContent = "Loading tasks...";
     try{
         const tasksIn = await fetchTasks();
         const rawTasks = tasksIn.map(task => new Task(task.id,task.title,task.completed));
         taskManager.setTasks(rawTasks);
         renderTasks();
-        statusMesssage.textContent = '';
+        statusMessage.textContent = '';
     } catch(error){
-        statusMesssage.textContent = "Error loading tasks";
+        statusMessage.textContent = "Error loading tasks";
     }
   }  
 )
@@ -27,7 +27,7 @@ function renderTasks(){
         const taskDivsion = document.createElement('div');
         taskDivsion.classList.add('task');
         if(task.completed){
-            taskDivison.classList.add('completed');
+            taskDivsion.classList.add('completed');
         }
     
 
@@ -50,9 +50,9 @@ const deleteButton = document.createElement('button');
   });
   
 
-  taskDivison.appendChild(taskTitle);
-  taskDivison.appendChild(toggleButton);
-  taskDivison.appendChild(deleteButton);
-  taskList.appendChild(taskDivison);
+  taskDivsion.appendChild(taskTitle);
+  taskDivsion.appendChild(toggleButton);
+  taskDivsion.appendChild(deleteButton);
+  taskList.appendChild(taskDivsion);
     });
 }
