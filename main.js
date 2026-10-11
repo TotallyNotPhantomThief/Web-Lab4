@@ -23,7 +23,7 @@ function renderTasks(){
     const jsonString = JSON.stringify(taskManager.tasks,null,2);
     const jsonParse = JSON.parse(jsonString);
 
-    jsonParse.tasks.forEach(task => {
+    jsonParse.forEach(task => {
         const taskDivsion = document.createElement('div');
         taskDivsion.classList.add('task');
         if(task.completed){
