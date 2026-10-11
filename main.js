@@ -1,7 +1,7 @@
 import { TaskManager,Task } from "./taskmanager";
 import{ fetchTasks} from "./api";
 const taskManager = new TaskManager();
-const loadBtn = document.getElementById("loadTasksBtn");
+const loadBtn = document.getElementById("loadTaskBtn");
 const taskList = document.getElementById("taskList");
 const statusMesssage = document.getElementById("statusMessage");
 
