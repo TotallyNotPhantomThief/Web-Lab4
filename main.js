@@ -20,7 +20,7 @@ loadBtn.addEventListener("click",async ()=> {
 )
 function renderTasks(){
     taskList.innerHTML = '';
-    const jsonString = JSON.stringify(rawTasks,null,2);
+    const jsonString = JSON.stringify(taskManager.tasks,null,2);
     const jsonParse = JSON.parse(jsonString);
 
     jsonParse.tasks.forEach(task => {
