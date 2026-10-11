@@ -12,7 +12,7 @@ loadBtn.addEventListener("click",async ()=> {
         const rawTasks = tasksIn.map(task => new Task(task.id,task.title,task.completed));
         taskManager.setTasks(rawTasks);
         renderTasks();
-        statusmessage.textContent = '';
+        statusMesssage.textContent = '';
     } catch(error){
         statusMesssage.textContent = "Error loading tasks";
     }
@@ -20,8 +20,8 @@ loadBtn.addEventListener("click",async ()=> {
 )
 function renderTasks(){
     taskList.innerHTML = '';
-    const jsonString = JSON.stringify(rawtasks,null,2);
-    const jsonParse = Json.parse(jsonString);
+    const jsonString = JSON.stringify(rawTasks,null,2);
+    const jsonParse = JSON.parse(jsonString);
 
     jsonParse.tasks.forEach(task => {
         const taskDivsion = document.createElement('div');
@@ -40,7 +40,7 @@ function renderTasks(){
         taskManager.toggleTask(task.id);
         renderTasks();
     });
-   });
+   
 
 const deleteButton = document.createElement('button');
   deleteButton.textContent = "Delete";
@@ -48,9 +48,11 @@ const deleteButton = document.createElement('button');
     taskManager.removeTask(task.id);
     renderTasks();
   });
+  
 
   taskDivison.appendChild(taskTitle);
   taskDivison.appendChild(toggleButton);
   taskDivison.appendChild(deleteButton);
   taskList.appendChild(taskDivison);
+    });
 }

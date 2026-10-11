@@ -10,16 +10,15 @@ value: id,
 writable: false,
 configurable: false,
 enumerable: true});
-
-}
+ }
 updateCompletedState(state){
     this.completed.classlist.toggle('completed',state);
 }
 toggle(){
     this.completed.classlist.toggle('completed');
 }
+ }
 
-}
 export class TaskManager{
 constructor(){
     this.tasks = [];
