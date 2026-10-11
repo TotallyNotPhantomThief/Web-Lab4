@@ -1,5 +1,5 @@
-import { TaskManager,Task } from "./taskmanager";
-import{ fetchTasks} from "./api";
+import { TaskManager,Task } from "./taskmanager.js";
+import{ fetchTasks} from "./api.js";
 const taskManager = new TaskManager();
 const loadBtn = document.getElementById("loadTaskBtn");
 const taskList = document.getElementById("taskList");
